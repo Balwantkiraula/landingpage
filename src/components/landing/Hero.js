@@ -18,21 +18,21 @@ export function Hero() {
           animate="visible"
         >
           <motion.div variants={staggerItem}>
-            <div className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-3 py-1 text-xs text-slate-600">
-              <span className="font-semibold text-slate-900">New</span>
+            <div className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-3 py-1 text-xs text-slate-600 dark:border-slate-800 dark:bg-slate-900/60 dark:text-slate-300">
+              <span className="font-semibold text-slate-900 dark:text-slate-50">New</span>
               <span>Automations + analytics in one place</span>
             </div>
           </motion.div>
 
           <motion.h1
             variants={staggerItem}
-            className="text-pretty text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl lg:text-5xl"
+            className="text-pretty text-3xl font-semibold tracking-tight text-slate-900 dark:text-slate-50 sm:text-4xl lg:text-5xl"
           >
             Ship faster with a modern workflow platform for teams
           </motion.h1>
           <motion.p
             variants={staggerItem}
-            className="text-pretty text-base leading-relaxed text-slate-600 sm:text-lg"
+            className="text-pretty text-base leading-relaxed text-slate-600 dark:text-slate-300 sm:text-lg"
           >
             FlowPilot helps you automate repetitive work, stay aligned, and track progress without
             the overhead. Mobile-first UX, fast performance, and a clean design system.
@@ -53,7 +53,7 @@ export function Hero() {
 
           <motion.div
             variants={staggerItem}
-            className="flex flex-wrap items-center gap-x-6 gap-y-2 text-xs text-slate-600"
+            className="flex flex-wrap items-center gap-x-6 gap-y-2 text-xs text-slate-600 dark:text-slate-300"
           >
             <span className="inline-flex items-center gap-2">
               <span aria-hidden="true">✓</span> No credit card required
@@ -73,16 +73,16 @@ export function Hero() {
           animate={{ opacity: 1, scale: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
         >
-          <div className="pointer-events-none absolute inset-0 -z-10 rounded-3xl bg-linear-to-b from-blue-50 to-white" />
+          <div className="pointer-events-none absolute inset-0 -z-10 rounded-3xl bg-linear-to-b from-blue-50 to-white dark:from-slate-900 dark:to-slate-950" />
           <motion.div
             animate={{ y: [0, -7, 0] }}
             transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
           >
             <Card className="overflow-hidden">
-              <div className="border-b border-slate-200 bg-slate-50 px-4 py-3">
+              <div className="border-b border-slate-200 bg-slate-50 px-4 py-3 dark:border-slate-800 dark:bg-slate-900/60">
                 <div className="flex items-center justify-between">
-                  <p className="text-sm font-medium text-slate-900">Today</p>
-                  <p className="text-xs text-slate-500">Live overview</p>
+                  <p className="text-sm font-medium text-slate-900 dark:text-slate-50">Today</p>
+                  <p className="text-xs text-slate-500 dark:text-slate-400">Live overview</p>
                 </div>
               </div>
               <div className="space-y-4 p-4">
@@ -104,10 +104,11 @@ export function Hero() {
                   <MiniRow title="Incident follow-up" meta="Due tomorrow" />
                   <MiniRow title="Customer onboarding" meta="3 active" />
                 </div>
-                <div className="rounded-2xl border border-slate-200 bg-white p-3">
-                  <p className="text-xs font-medium text-slate-900">Insight</p>
-                  <p className="mt-1 text-sm text-slate-600">
-                    Your cycle time improved by <span className="font-semibold text-slate-900">18%</span>{" "}
+                <div className="rounded-2xl border border-slate-200 bg-white p-3 dark:border-slate-800 dark:bg-slate-950/40">
+                  <p className="text-xs font-medium text-slate-900 dark:text-slate-50">Insight</p>
+                  <p className="mt-1 text-sm text-slate-600 dark:text-slate-300">
+                    Your cycle time improved by{" "}
+                    <span className="font-semibold text-slate-900 dark:text-slate-50">18%</span>{" "}
                     this week.
                   </p>
                 </div>
@@ -123,13 +124,13 @@ export function Hero() {
 function MiniStat({ label, value, tone = "ok" }) {
   const badge =
     tone === "warn"
-      ? "bg-amber-50 text-amber-700 border-amber-200"
-      : "bg-emerald-50 text-emerald-700 border-emerald-200";
+      ? "bg-amber-50 text-amber-700 border-amber-200 dark:bg-amber-500/10 dark:text-amber-200 dark:border-amber-500/30"
+      : "bg-emerald-50 text-emerald-700 border-emerald-200 dark:bg-emerald-500/10 dark:text-emerald-200 dark:border-emerald-500/30";
   return (
-    <div className="rounded-2xl border border-slate-200 bg-white p-3">
-      <p className="text-xs text-slate-500">{label}</p>
+    <div className="rounded-2xl border border-slate-200 bg-white p-3 dark:border-slate-800 dark:bg-slate-950/40">
+      <p className="text-xs text-slate-500 dark:text-slate-400">{label}</p>
       <div className="mt-2 flex items-end justify-between gap-2">
-        <p className="text-2xl font-semibold tracking-tight text-slate-900">{value}</p>
+        <p className="text-2xl font-semibold tracking-tight text-slate-900 dark:text-slate-50">{value}</p>
         <span className={`rounded-full border px-2 py-1 text-[11px] ${badge}`}>
           {tone === "warn" ? "Needs attention" : "Healthy"}
         </span>
@@ -140,9 +141,9 @@ function MiniStat({ label, value, tone = "ok" }) {
 
 function MiniRow({ title, meta }) {
   return (
-    <div className="flex items-center justify-between gap-3 rounded-2xl border border-slate-200 bg-white px-3 py-2">
-      <p className="text-sm font-medium text-slate-900">{title}</p>
-      <p className="text-xs text-slate-500">{meta}</p>
+    <div className="flex items-center justify-between gap-3 rounded-2xl border border-slate-200 bg-white px-3 py-2 dark:border-slate-800 dark:bg-slate-950/40">
+      <p className="text-sm font-medium text-slate-900 dark:text-slate-50">{title}</p>
+      <p className="text-xs text-slate-500 dark:text-slate-400">{meta}</p>
     </div>
   );
 }

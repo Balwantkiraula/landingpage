@@ -1,8 +1,4 @@
 
-import "./globals.css";
-
-
-
 export const metadata = {
   title: {
     default: "FlowPilot — Ship faster with a modern SaaS platform",
@@ -19,14 +15,24 @@ export const metadata = {
   },
   robots: { index: true, follow: true },
 };
+import "./globals.css";
+import { ThemeProvider } from "../components/ui/ThemeProvider";
 
 export default function RootLayout({ children }) {
   return (
     <html
       lang="en"
-
+      suppressHydrationWarning
     >
-      <body>{children}</body>
+      <body>
+        <script
+          // Set theme class before React hydrates to prevent flash.
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var t=localStorage.getItem('theme');if(t!=='light'&&t!=='dark'){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'};var d=document.documentElement;d.classList.toggle('dark',t==='dark')}catch(e){}})();`,
+          }}
+        />
+        <ThemeProvider>{children}</ThemeProvider>
+      </body>
     </html>
   );
 }

@@ -8,7 +8,7 @@ import { fadeIn, landingViewport, staggerItem, staggerParent } from "../../lib/m
 
 export function Testimonials() {
   return (
-    <Section id="testimonials" className="bg-white">
+    <Section id="testimonials" className="bg-white dark:bg-slate-900">
       <motion.div
         className="mx-auto max-w-2xl text-center"
         variants={fadeIn}
@@ -16,7 +16,7 @@ export function Testimonials() {
         whileInView="visible"
         viewport={landingViewport}
       >
-        <h2 className="text-balance text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl">
+        <h2 className="text-balance text-2xl font-semibold tracking-tight text-slate-900 dark:text-slate-50 sm:text-3xl">
           Teams love how simple it feels
         </h2>
       </motion.div>
@@ -35,11 +35,13 @@ export function Testimonials() {
             whileHover={{ y: -5, transition: { type: "spring", stiffness: 380, damping: 22 } }}
           >
             <Card className="h-full p-6 transition-shadow duration-300 hover:shadow-md hover:shadow-slate-900/10">
-              <p className="text-sm leading-relaxed text-slate-700">“{t.quote}”</p>
+              <p className="text-sm leading-relaxed text-slate-700 dark:text-slate-100">
+                “{t.quote}”
+              </p>
               <div className="mt-5 flex items-center gap-3">
                 <motion.div
                   aria-hidden="true"
-                  className="grid size-10 place-items-center rounded-2xl bg-slate-100 text-sm font-semibold text-slate-700"
+                  className="grid size-10 place-items-center rounded-2xl bg-slate-100 text-sm font-semibold text-slate-700 dark:bg-slate-700/60 dark:text-slate-50"
                   initial={{ scale: 0.85, opacity: 0.8 }}
                   whileInView={{ scale: 1, opacity: 1 }}
                   viewport={{ once: true }}
@@ -48,8 +50,10 @@ export function Testimonials() {
                   {initials(t.name)}
                 </motion.div>
                 <div>
-                  <p className="text-sm font-semibold text-slate-900">{t.name}</p>
-                  <p className="text-xs text-slate-500">{t.role}</p>
+                  <p className="text-sm font-semibold text-slate-900 dark:text-slate-50">
+                    {t.name}
+                  </p>
+                  <p className="text-xs text-slate-500 dark:text-slate-400">{t.role}</p>
                 </div>
               </div>
             </Card>

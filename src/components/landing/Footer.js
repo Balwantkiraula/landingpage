@@ -8,7 +8,7 @@ import { fadeIn, landingViewport, staggerItem, staggerParent } from "../../lib/m
 
 export function Footer() {
   return (
-    <footer className="border-t border-slate-200 bg-white">
+    <footer className="border-t border-slate-200 bg-white dark:border-slate-700/80 dark:bg-slate-900">
       <Container className="py-10">
         <motion.div
           className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4"
@@ -19,7 +19,7 @@ export function Footer() {
         >
           <motion.div variants={staggerItem} className="space-y-3">
             <Logo />
-            <p className="text-sm leading-relaxed text-slate-600">
+            <p className="text-sm leading-relaxed text-slate-600 dark:text-slate-200">
               A lightweight SaaS landing page built with Next.js App Router and Tailwind, designed
               mobile-first.
             </p>
@@ -51,7 +51,7 @@ export function Footer() {
         </motion.div>
 
         <motion.div
-          className="mt-10 flex flex-col gap-2 border-t border-slate-200 pt-6 text-xs text-slate-500 sm:flex-row sm:items-center sm:justify-between"
+          className="mt-10 flex flex-col gap-2 border-t border-slate-200 pt-6 text-xs text-slate-500 dark:border-slate-700/70 dark:text-slate-300 sm:flex-row sm:items-center sm:justify-between"
           variants={fadeIn}
           initial="hidden"
           whileInView="visible"
@@ -68,7 +68,7 @@ export function Footer() {
 function FooterCol({ title, children }) {
   return (
     <div>
-      <p className="text-sm font-semibold text-slate-900">{title}</p>
+      <p className="text-sm font-semibold text-slate-900 dark:text-slate-50">{title}</p>
       <div className="mt-3 space-y-2">{children}</div>
     </div>
   );
@@ -77,7 +77,10 @@ function FooterCol({ title, children }) {
 function FooterLink({ href, children }) {
   return (
     <motion.div whileHover={{ x: 3 }} transition={{ type: "spring", stiffness: 400, damping: 25 }}>
-      <Link href={href} className="block text-sm text-slate-600 hover:text-slate-900">
+      <Link
+        href={href}
+        className="block text-sm text-slate-600 hover:text-slate-900 dark:text-slate-200 dark:hover:text-white"
+      >
         {children}
       </Link>
     </motion.div>

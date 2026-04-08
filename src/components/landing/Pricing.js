@@ -18,7 +18,7 @@ export function Pricing() {
   }, [billing]);
 
   return (
-    <Section id="pricing" className="bg-slate-50">
+    <Section id="pricing" className="bg-slate-50 dark:bg-slate-900">
       <motion.div
         className="mx-auto max-w-2xl text-center"
         variants={fadeIn}
@@ -26,10 +26,10 @@ export function Pricing() {
         whileInView="visible"
         viewport={landingViewport}
       >
-        <h2 className="text-balance text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl">
+        <h2 className="text-balance text-2xl font-semibold tracking-tight text-slate-900 dark:text-slate-50 sm:text-3xl">
           Simple pricing that scales with you
         </h2>
-        <p className="mt-3 text-pretty text-sm leading-relaxed text-slate-600 sm:text-base">
+        <p className="mt-3 text-pretty text-sm leading-relaxed text-slate-600 dark:text-slate-200 sm:text-base">
           Toggle billing, pick a plan, and start shipping. No hidden fees.
         </p>
 
@@ -60,32 +60,45 @@ export function Pricing() {
                 >
                   <div className="flex items-start justify-between gap-4">
                     <div>
-                      <p className="text-sm font-semibold text-slate-900">{plan.name}</p>
-                      <p className="mt-1 text-sm text-slate-600">{plan.description}</p>
+                      <p className="text-sm font-semibold text-slate-900 dark:text-slate-50">
+                        {plan.name}
+                      </p>
+                      <p className="mt-1 text-sm text-slate-600 dark:text-slate-300">
+                        {plan.description}
+                      </p>
                     </div>
                     {featured ? (
-                      <span className="rounded-full bg-slate-900 px-2.5 py-1 text-xs font-medium text-white">
+                      <span className="rounded-full bg-slate-900 px-2.5 py-1 text-xs font-medium text-white dark:bg-slate-50 dark:text-slate-900">
                         Most popular
                       </span>
                     ) : null}
                   </div>
 
                   <div className="mt-5 flex items-end gap-2">
-                    <p className="text-4xl font-semibold tracking-tight text-slate-900">
+                    <p className="text-4xl font-semibold tracking-tight text-slate-900 dark:text-slate-50">
                       ${price}
                     </p>
-                    <p className="pb-1 text-sm text-slate-500">{view.suffix}</p>
+                    <p className="pb-1 text-sm text-slate-500 dark:text-slate-400">
+                      {view.suffix}
+                    </p>
                   </div>
                   {view.isYearly ? (
-                    <p className="mt-1 text-xs text-slate-500">Billed yearly. Save ~20%.</p>
+                    <p className="mt-1 text-xs text-slate-500 dark:text-slate-400">
+                      Billed yearly. Save ~20%.
+                    </p>
                   ) : (
-                    <p className="mt-1 text-xs text-slate-500">Billed monthly.</p>
+                    <p className="mt-1 text-xs text-slate-500 dark:text-slate-400">
+                      Billed monthly.
+                    </p>
                   )}
 
-                  <ul className="mt-5 space-y-2 text-sm text-slate-700">
+                  <ul className="mt-5 space-y-2 text-sm text-slate-700 dark:text-slate-200">
                     {plan.highlights.map((h) => (
                       <li key={h} className="flex items-start gap-2">
-                        <span aria-hidden="true" className="mt-0.5 text-slate-900">
+                        <span
+                          aria-hidden="true"
+                          className="mt-0.5 text-slate-900 dark:text-slate-200"
+                        >
                           ✓
                         </span>
                         <span>{h}</span>
@@ -119,44 +132,44 @@ function BillingToggle({ value, onChange }) {
   const monthlyActive = value === "monthly";
   return (
     <div className="mt-6 flex items-center justify-center">
-      <div className="relative inline-flex rounded-2xl border border-slate-200 bg-white p-1 shadow-sm shadow-slate-900/5">
+      <div className="relative inline-flex rounded-2xl border border-slate-200 bg-white p-1 shadow-sm shadow-slate-900/5 dark:border-slate-800 dark:bg-slate-900/60">
         <button
           type="button"
           onClick={() => onChange("monthly")}
           className={[
             "relative z-10 h-9 rounded-xl px-3 text-sm font-medium transition-colors",
-            monthlyActive ? "text-white" : "text-slate-700 hover:bg-slate-50",
+            monthlyActive ? "text-white" : "text-slate-700 hover:bg-slate-50 dark:text-slate-200 dark:hover:bg-slate-800/60",
           ].join(" ")}
           aria-pressed={monthlyActive}
         >
           {monthlyActive ? (
             <motion.span
               layoutId="billing-pill"
-              className="absolute inset-0 rounded-xl bg-slate-900"
+              className="absolute inset-0 rounded-xl bg-slate-900 dark:bg-slate-50"
               transition={{ type: "spring", stiffness: 480, damping: 32 }}
             />
           ) : null}
-          <span className="relative z-10">Monthly</span>
+          <span className={`relative z-10 ${monthlyActive ? "dark:text-slate-900" : ""}`}>Monthly</span>
         </button>
         <button
           type="button"
           onClick={() => onChange("yearly")}
           className={[
             "relative z-10 inline-flex h-9 items-center rounded-xl px-3 text-sm font-medium transition-colors",
-            !monthlyActive ? "text-white" : "text-slate-700 hover:bg-slate-50",
+            !monthlyActive ? "text-white" : "text-slate-700 hover:bg-slate-50 dark:text-slate-200 dark:hover:bg-slate-800/60",
           ].join(" ")}
           aria-pressed={!monthlyActive}
         >
           {!monthlyActive ? (
             <motion.span
               layoutId="billing-pill"
-              className="absolute inset-0 rounded-xl bg-slate-900"
+              className="absolute inset-0 rounded-xl bg-slate-900 dark:bg-slate-50"
               transition={{ type: "spring", stiffness: 480, damping: 32 }}
             />
           ) : null}
           <span className="relative z-10 inline-flex items-center">
             Yearly
-            <span className="ml-2 rounded-full bg-emerald-50 px-2 py-0.5 text-[11px] font-semibold text-emerald-700">
+            <span className="ml-2 rounded-full bg-emerald-50 px-2 py-0.5 text-[11px] font-semibold text-emerald-700 dark:bg-emerald-500/10 dark:text-emerald-200">
               Save
             </span>
           </span>

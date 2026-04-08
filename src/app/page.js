@@ -1,4 +1,3 @@
-import { MotionRoot } from "../components/MotionRoot";
 import { Header } from "../components/landing/Header";
 import { Hero } from "../components/landing/Hero";
 import { Features } from "../components/landing/Features";
@@ -8,15 +7,13 @@ import { Footer } from "../components/landing/Footer";
 
 export default function Home() {
   return (
-    <MotionRoot>
-      <main className="min-h-dvh bg-white">
-        <Header />
-        <Hero />
-        <Features />
-        <Pricing />
-        <Testimonials />
-        <Footer />
-      </main>
-    </MotionRoot>
+    <main className="min-h-dvh bg-white text-slate-900 transition-colors duration-300 dark:bg-slate-900 dark:text-slate-50">
+      <Header />
+      <Hero />
+      <Features />
+      <Pricing />
+      <Testimonials />
+      <Footer />
+    </main>
   );
 }
