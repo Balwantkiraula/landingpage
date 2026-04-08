@@ -12,6 +12,10 @@ This project is a clean, component-driven landing page for a SaaS-style workflow
 - Smooth **motion transitions** and hover interactions via `framer-motion`
 - A responsive layout built with Tailwind CSS utility classes
 
+## Live demo
+
+- https://landingpage-gamma-nine-76.vercel.app/
+
 ## What I built
 
 - **Header** with sticky navigation, logo, theme toggle, and CTA buttons
@@ -53,4 +57,4 @@ npm install
 npm run dev
 ```
 
-Open `https://landingpage-gamma-nine-76.vercel.app/` to view the app.
+
