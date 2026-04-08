@@ -18,7 +18,7 @@ body {
 }
 
 body {
-  @apply bg-white text-slate-900 antialiased transition-colors duration-300 dark:bg-slate-900 dark:text-slate-50;
+  @apply bg-white text-slate-900 antialiased transition-colors duration-300 dark:bg-slate-800 dark:text-slate-100;
   font-feature-settings: "ss01" 1, "ss02" 1, "cv01" 1;
 }
 

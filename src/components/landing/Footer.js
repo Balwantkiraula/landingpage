@@ -8,7 +8,7 @@ import { fadeIn, landingViewport, staggerItem, staggerParent } from "../../lib/m
 
 export function Footer() {
   return (
-    <footer className="border-t border-slate-200 bg-white dark:border-slate-700/80 dark:bg-slate-900">
+    <footer className="border-t border-slate-200 bg-white dark:border-slate-600/60 dark:bg-slate-800">
       <Container className="py-10">
         <motion.div
           className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4"
@@ -51,7 +51,7 @@ export function Footer() {
         </motion.div>
 
         <motion.div
-          className="mt-10 flex flex-col gap-2 border-t border-slate-200 pt-6 text-xs text-slate-500 dark:border-slate-700/70 dark:text-slate-300 sm:flex-row sm:items-center sm:justify-between"
+          className="mt-10 flex flex-col gap-2 border-t border-slate-200 pt-6 text-xs text-slate-500 dark:border-slate-600/50 dark:text-slate-300 sm:flex-row sm:items-center sm:justify-between"
           variants={fadeIn}
           initial="hidden"
           whileInView="visible"

@@ -7,7 +7,7 @@ import { Footer } from "../components/landing/Footer";
 
 export default function Home() {
   return (
-    <main className="min-h-dvh bg-white text-slate-900 transition-colors duration-300 dark:bg-slate-900 dark:text-slate-50">
+    <main className="min-h-dvh">
       <Header />
       <Hero />
       <Features />

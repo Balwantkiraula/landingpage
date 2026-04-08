@@ -8,7 +8,7 @@ import { fadeIn, landingViewport, staggerItem, staggerParent } from "../../lib/m
 
 export function Features() {
   return (
-    <Section id="features" className="bg-white dark:bg-slate-900">
+    <Section id="features" className="bg-white dark:bg-slate-800">
       <motion.div
         className="mx-auto max-w-2xl text-center"
         variants={fadeIn}
@@ -37,7 +37,7 @@ export function Features() {
             <motion.div whileHover={{ y: -4 }} transition={{ type: "spring", stiffness: 400, damping: 25 }}>
               <Card className="h-full p-5 transition-shadow duration-300 hover:shadow-md hover:shadow-slate-900/10">
                 <div className="flex items-start gap-3">
-                  <div className="grid size-10 shrink-0 place-items-center rounded-2xl bg-slate-100 text-lg dark:bg-slate-700/60 dark:text-slate-50">
+                  <div className="grid size-10 shrink-0 place-items-center rounded-2xl bg-slate-100 text-lg dark:bg-slate-600/45 dark:text-slate-50">
                     <span aria-hidden="true">{f.icon}</span>
                   </div>
                   <div>

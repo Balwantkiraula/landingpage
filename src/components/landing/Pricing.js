@@ -18,7 +18,7 @@ export function Pricing() {
   }, [billing]);
 
   return (
-    <Section id="pricing" className="bg-slate-50 dark:bg-slate-900">
+    <Section id="pricing" className="bg-slate-50 dark:bg-slate-900/60">
       <motion.div
         className="mx-auto max-w-2xl text-center"
         variants={fadeIn}
@@ -55,7 +55,7 @@ export function Pricing() {
                 <Card
                   className={[
                     "h-full p-6 transition-shadow duration-300 hover:shadow-lg hover:shadow-slate-900/15",
-                    featured ? "border-slate-900 shadow-md shadow-slate-900/10" : "",
+                    featured ? "border-slate-900 shadow-md shadow-slate-900/10 dark:border-slate-200/70" : "",
                   ].join(" ")}
                 >
                   <div className="flex items-start justify-between gap-4">
@@ -63,7 +63,7 @@ export function Pricing() {
                       <p className="text-sm font-semibold text-slate-900 dark:text-slate-50">
                         {plan.name}
                       </p>
-                      <p className="mt-1 text-sm text-slate-600 dark:text-slate-300">
+                      <p className="mt-1 text-sm text-slate-600 dark:text-slate-200">
                         {plan.description}
                       </p>
                     </div>
@@ -132,13 +132,13 @@ function BillingToggle({ value, onChange }) {
   const monthlyActive = value === "monthly";
   return (
     <div className="mt-6 flex items-center justify-center">
-      <div className="relative inline-flex rounded-2xl border border-slate-200 bg-white p-1 shadow-sm shadow-slate-900/5 dark:border-slate-800 dark:bg-slate-900/60">
+      <div className="relative inline-flex rounded-2xl border border-slate-200 bg-white p-1 shadow-sm shadow-slate-900/5 dark:border-slate-600/60 dark:bg-slate-700/35">
         <button
           type="button"
           onClick={() => onChange("monthly")}
           className={[
             "relative z-10 h-9 rounded-xl px-3 text-sm font-medium transition-colors",
-            monthlyActive ? "text-white" : "text-slate-700 hover:bg-slate-50 dark:text-slate-200 dark:hover:bg-slate-800/60",
+            monthlyActive ? "text-white" : "text-slate-700 hover:bg-slate-50 dark:text-slate-100 dark:hover:bg-slate-700/45",
           ].join(" ")}
           aria-pressed={monthlyActive}
         >
@@ -156,7 +156,7 @@ function BillingToggle({ value, onChange }) {
           onClick={() => onChange("yearly")}
           className={[
             "relative z-10 inline-flex h-9 items-center rounded-xl px-3 text-sm font-medium transition-colors",
-            !monthlyActive ? "text-white" : "text-slate-700 hover:bg-slate-50 dark:text-slate-200 dark:hover:bg-slate-800/60",
+            !monthlyActive ? "text-white" : "text-slate-700 hover:bg-slate-50 dark:text-slate-100 dark:hover:bg-slate-700/45",
           ].join(" ")}
           aria-pressed={!monthlyActive}
         >
