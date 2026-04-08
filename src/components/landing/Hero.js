@@ -7,7 +7,7 @@ export function Hero() {
   return (
     <Section className="pt-10 sm:pt-14">
       <div className="grid items-center gap-10 lg:grid-cols-2">
-        <div className="space-y-5">
+        <div className="space-y-5 lg:max-w-xl">
           <div className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-3 py-1 text-xs text-slate-600">
             <span className="font-semibold text-slate-900">New</span>
             <span>Automations + analytics in one place</span>
@@ -44,7 +44,7 @@ export function Hero() {
         </div>
 
         <div className="relative">
-          <div className="pointer-events-none absolute inset-0 -z-10 rounded-3xl bg-gradient-to-b from-blue-50 to-white" />
+          <div className="pointer-events-none absolute inset-0 -z-10 rounded-3xl bg-linear-to-b from-blue-50 to-white" />
           <Card className="overflow-hidden">
             <div className="border-b border-slate-200 bg-slate-50 px-4 py-3">
               <div className="flex items-center justify-between">

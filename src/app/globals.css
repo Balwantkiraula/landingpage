@@ -12,10 +12,15 @@ body {
 
 body {
   @apply bg-white text-slate-900 antialiased;
+  font-feature-settings: "ss01" 1, "ss02" 1, "cv01" 1;
 }
 
 /* Accessible focus rings for keyboard users. */
 :focus-visible {
   outline: 2px solid rgb(59 130 246);
   outline-offset: 2px;
+}
+
+::selection {
+  background: rgb(59 130 246 / 0.18);
 }
