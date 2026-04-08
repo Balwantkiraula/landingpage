@@ -1,3 +1,5 @@
+"use client";
+
 export function Logo({ className = "" }) {
   return (
     <div className={`inline-flex items-center gap-2 ${className}`}>

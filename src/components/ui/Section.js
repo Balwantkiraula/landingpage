@@ -1,3 +1,5 @@
+"use client";
+
 import { Container } from "./Container";
 
 export function Section({ id, className = "", children }) {

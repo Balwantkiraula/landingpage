@@ -1,36 +1,60 @@
+"use client";
+
 import Link from "next/link";
+import { motion } from "framer-motion";
 import { Section } from "../ui/Section";
 import { Button } from "../ui/Button";
 import { Card } from "../ui/Card";
+import { staggerContainer, staggerItem, staggerParent } from "../../lib/motion-variants";
 
 export function Hero() {
   return (
     <Section className="pt-10 sm:pt-14">
       <div className="grid items-center gap-10 lg:grid-cols-2">
-        <div className="space-y-5 lg:max-w-xl">
-          <div className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-3 py-1 text-xs text-slate-600">
-            <span className="font-semibold text-slate-900">New</span>
-            <span>Automations + analytics in one place</span>
-          </div>
+        <motion.div
+          className="space-y-5 lg:max-w-xl"
+          variants={staggerContainer}
+          initial="hidden"
+          animate="visible"
+        >
+          <motion.div variants={staggerItem}>
+            <div className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-3 py-1 text-xs text-slate-600">
+              <span className="font-semibold text-slate-900">New</span>
+              <span>Automations + analytics in one place</span>
+            </div>
+          </motion.div>
 
-          <h1 className="text-pretty text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl lg:text-5xl">
+          <motion.h1
+            variants={staggerItem}
+            className="text-pretty text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl lg:text-5xl"
+          >
             Ship faster with a modern workflow platform for teams
-          </h1>
-          <p className="text-pretty text-base leading-relaxed text-slate-600 sm:text-lg">
+          </motion.h1>
+          <motion.p
+            variants={staggerItem}
+            className="text-pretty text-base leading-relaxed text-slate-600 sm:text-lg"
+          >
             FlowPilot helps you automate repetitive work, stay aligned, and track progress without
             the overhead. Mobile-first UX, fast performance, and a clean design system.
-          </p>
+          </motion.p>
 
-          <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
-            <Button as={Link} href="#pricing" size="lg">
-              Start free
-            </Button>
-            <Button as={Link} href="#features" variant="secondary" size="lg">
-              Explore features
-            </Button>
-          </div>
+          <motion.div variants={staggerItem} className="flex flex-col gap-3 sm:flex-row sm:items-center">
+            <motion.span className="inline-flex sm:flex-initial" whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
+              <Button as={Link} href="#pricing" size="lg" className="w-full sm:w-auto">
+                Start free
+              </Button>
+            </motion.span>
+            <motion.span className="inline-flex sm:flex-initial" whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
+              <Button as={Link} href="#features" variant="secondary" size="lg" className="w-full sm:w-auto">
+                Explore features
+              </Button>
+            </motion.span>
+          </motion.div>
 
-          <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-xs text-slate-600">
+          <motion.div
+            variants={staggerItem}
+            className="flex flex-wrap items-center gap-x-6 gap-y-2 text-xs text-slate-600"
+          >
             <span className="inline-flex items-center gap-2">
               <span aria-hidden="true">✓</span> No credit card required
             </span>
@@ -40,41 +64,57 @@ export function Hero() {
             <span className="inline-flex items-center gap-2">
               <span aria-hidden="true">✓</span> Setup in minutes
             </span>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
-        <div className="relative">
+        <motion.div
+          className="relative"
+          initial={{ opacity: 0, scale: 0.96, y: 24 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
+        >
           <div className="pointer-events-none absolute inset-0 -z-10 rounded-3xl bg-linear-to-b from-blue-50 to-white" />
-          <Card className="overflow-hidden">
-            <div className="border-b border-slate-200 bg-slate-50 px-4 py-3">
-              <div className="flex items-center justify-between">
-                <p className="text-sm font-medium text-slate-900">Today</p>
-                <p className="text-xs text-slate-500">Live overview</p>
+          <motion.div
+            animate={{ y: [0, -7, 0] }}
+            transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
+          >
+            <Card className="overflow-hidden">
+              <div className="border-b border-slate-200 bg-slate-50 px-4 py-3">
+                <div className="flex items-center justify-between">
+                  <p className="text-sm font-medium text-slate-900">Today</p>
+                  <p className="text-xs text-slate-500">Live overview</p>
+                </div>
               </div>
-            </div>
-            <div className="space-y-4 p-4">
-              <div className="grid gap-3 sm:grid-cols-2">
-                <MiniStat label="Automations run" value="128" />
-                <MiniStat label="Blocked tasks" value="3" tone="warn" />
+              <div className="space-y-4 p-4">
+                <motion.div
+                  className="grid gap-3 sm:grid-cols-2"
+                  variants={staggerParent}
+                  initial="hidden"
+                  animate="visible"
+                >
+                  <motion.div variants={staggerItem}>
+                    <MiniStat label="Automations run" value="128" />
+                  </motion.div>
+                  <motion.div variants={staggerItem}>
+                    <MiniStat label="Blocked tasks" value="3" tone="warn" />
+                  </motion.div>
+                </motion.div>
+                <div className="space-y-3">
+                  <MiniRow title="Weekly rollout" meta="On track" />
+                  <MiniRow title="Incident follow-up" meta="Due tomorrow" />
+                  <MiniRow title="Customer onboarding" meta="3 active" />
+                </div>
+                <div className="rounded-2xl border border-slate-200 bg-white p-3">
+                  <p className="text-xs font-medium text-slate-900">Insight</p>
+                  <p className="mt-1 text-sm text-slate-600">
+                    Your cycle time improved by <span className="font-semibold text-slate-900">18%</span>{" "}
+                    this week.
+                  </p>
+                </div>
               </div>
-              <div className="space-y-3">
-                <MiniRow title="Weekly rollout" meta="On track" />
-                <MiniRow title="Incident follow-up" meta="Due tomorrow" />
-                <MiniRow title="Customer onboarding" meta="3 active" />
-              </div>
-              <div className="rounded-2xl border border-slate-200 bg-white p-3">
-                <p className="text-xs font-medium text-slate-900">Insight</p>
-                <p className="mt-1 text-sm text-slate-600">
-                  Your cycle time improved by <span className="font-semibold text-slate-900">18%</span>{" "}
-                  this week.
-                </p>
-              </div>
-            </div>
-          </Card>
-          <p className="mt-3 text-center text-xs text-slate-500">
-            Lightweight UI built for performance.
-          </p>
-        </div>
+            </Card>
+          </motion.div>
+        </motion.div>
       </div>
     </Section>
   );
@@ -106,4 +146,3 @@ function MiniRow({ title, meta }) {
     </div>
   );
 }
-

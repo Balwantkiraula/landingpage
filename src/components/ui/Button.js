@@ -1,3 +1,5 @@
+"use client";
+
 export function Button({
   as: Comp = "button",
   variant = "primary",
