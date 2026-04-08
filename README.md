@@ -53,4 +53,4 @@ npm install
 npm run dev
 ```
 
-Open `http://localhost:3000` to view the app.
+Open `https://landingpage-gamma-nine-76.vercel.app/` to view the app.
